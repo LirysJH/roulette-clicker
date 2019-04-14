@@ -12,7 +12,7 @@ function main()
 	if not isSampfuncsLoaded() or not isSampLoaded() then return end
 	while not isSampAvailable() do wait(100) end
 	
-	sampRegisterChatCommand("rlt", function()
+	sampRegisterChatCommand("rlt", function(arg)
 		enabled = not enabled
 		if enabled then
 			sampAddChatMessage(string.format("[%s]: Activated", thisScript().name), 0x40FF40)
@@ -23,20 +23,20 @@ function main()
 			fRlt = false
 			fOpen = false
 		end
+		state = string.match(arg, "(%d+)")
+		if tonumber(state) == 1 then
+			flag = true
+			--sampAddChatMessage(string.format("[%s]: Timer will be activated", thisScript().name), 0xFFE4B5)
+		elseif tonumber(state) == 0 then
+			flag = false
+			--sampAddChatMessage(string.format("[%s]: Timer will be deactivated", thisScript().name), 0xFFE4B5)
+		end
+		return {arg}
 	end)
 	
 	sampRegisterChatCommand("rlt_r", function()
 		sampAddChatMessage(string.format("[%s]: RELOADING",thisScript().name), 0x0000FF)
 		thisScript():reload()
-	end)
-	
-	sampRegisterChatCommand("rlt_t", function()
-		flag = not flag
-		if flag then
-			sampAddChatMessage(string.format("[%s]: Timer will be activated", thisScript().name), 0xFFE4B5)
-		else
-			sampAddChatMessage(string.format("[%s]: Timer will be deactivated", thisScript().name), 0xFFE4B5)
-		end
 	end)
 	
 	while true do
