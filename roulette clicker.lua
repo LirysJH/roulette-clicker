@@ -49,8 +49,8 @@ function main()
 			if sampTextdrawIsExists(2112) then
 				sampSendClickTextdraw(2112)
 				wait(1400)
-				if sampTextdrawIsExists(2197) and sampTextdrawIsExists(2199) then
-					sampSendClickTextdraw(2197)
+				if sampTextdrawIsExists(2201) and sampTextdrawIsExists(2203) then
+					sampSendClickTextdraw(2201)
 				end
 			end
 			wait(400)
