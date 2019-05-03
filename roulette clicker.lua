@@ -96,3 +96,11 @@ function rltTimer()
 		if flag then sampTextdrawDelete(16) end
 	end)
 end
+
+function sampev.onShowTextDraw(id, data)
+	if id == 2113 then
+		wTime = string.match(data.text, "(%d+) min")
+		wTime = tonumber(wTime)+1
+		wTime = wTime*60000
+	end
+end
