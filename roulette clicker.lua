@@ -2,8 +2,6 @@ script_name('RouletteClicker')
 script_author('James Hawk')
 script_version("2.0")
 
-local sampev = require "lib.samp.events"
-
 local xCoord = 310
 local yCoord = 415
 local fRlt = true
