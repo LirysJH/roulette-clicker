@@ -43,7 +43,7 @@ function main()
 			wait(50)
 			sampAddChatMessage(string.format("[%s]: Openning roulette", thisScript().name), 0xFFE4B5)
 			sampSendChat("/invent")
-			wait(3000) 
+			wait(2000) 
 			if sampTextdrawIsExists(2112) then
 				sampSendClickTextdraw(2112)
 				wait(1400)
@@ -56,8 +56,7 @@ function main()
 				local data_td = sampTextdrawGetString(2113)
 				if data_td ~= nil then
 					wTime = string.match(data_td, "(%d+)%s+")
-					wTime = tonumber(wTime)--+1
-					wTime = wTime*60000
+					wTime = (tonumber(wTime)+1)*60000
 				else
 					wTime = 7200000
 				end				
@@ -81,10 +80,12 @@ function rltTimer()
 			local minutes = math.floor(remainingTime/60)%60
 			local hours = math.floor(remainingTime/3600)%60
 			if flag then
-				if seconds >= 10 and minutes >= 10 then
+				if seconds >= 10 and minutes >=10 then
 					sampTextdrawCreate(45, "rlt "..hours..":"..minutes..":"..seconds, xCoord, yCoord)
-				elseif seconds < 10 and minutes >= 10 then
+				elseif seconds < 10 and minutes >=10 then
 					sampTextdrawCreate(45, "rlt "..hours..":"..minutes..":0"..seconds, xCoord, yCoord)
+				elseif seconds >=10 and minutes <10 then
+					sampTextdrawCreate(45, "rlt "..hours..":0"..minutes..":"..seconds, xCoord, yCoord)
 				elseif seconds < 10 and minutes < 10 then
 					sampTextdrawCreate(45, "rlt "..hours..":0"..minutes..":0"..seconds, xCoord, yCoord)
 				end
