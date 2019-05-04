@@ -84,11 +84,11 @@ function rltTimer()
 			local hours = math.floor(remainingTime/3600)%60
 			if flag then
 				if seconds >= 10 and minutes >= 10 then
-					sampTextdrawCreate(16, "rlt "..hours..":"..minutes..":"..seconds, xCoord, yCoord)
+					sampTextdrawCreate(45, "rlt "..hours..":"..minutes..":"..seconds, xCoord, yCoord)
 				elseif seconds < 10 and minutes >= 10 then
-					sampTextdrawCreate(16, "rlt "..hours..":"..minutes..":0"..seconds, xCoord, yCoord)
+					sampTextdrawCreate(45, "rlt "..hours..":"..minutes..":0"..seconds, xCoord, yCoord)
 				elseif seconds < 10 and minutes < 10 then
-					sampTextdrawCreate(16, "rlt "..hours..":0"..minutes..":0"..seconds, xCoord, yCoord)
+					sampTextdrawCreate(45, "rlt "..hours..":0"..minutes..":0"..seconds, xCoord, yCoord)
 				end
 			end
 			if seconds <= 0 and minutes <= 0 and hours <=0 then
@@ -98,6 +98,6 @@ function rltTimer()
 			wait(100)
 		end
 		fRlt = true
-		if flag then sampTextdrawDelete(16) end
+		if flag then sampTextdrawDelete(45) end
 	end)
 end
