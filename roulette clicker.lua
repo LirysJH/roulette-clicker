@@ -54,7 +54,7 @@ function main()
 			wait(1000)
 			if sampTextdrawIsExists(2113) then
 				local data_td = sampTextdrawGetString(2113)
-				if data_td ~= nil then
+				if data_td ~= nil and data_td ~= "" then
 					wTime = string.match(data_td, "(%d+)%s+")
 					wTime = (tonumber(wTime)+1)*60000
 				else
