@@ -39,35 +39,41 @@ function main()
 	
 	while true do
 		wait(0)
-		if enabled and fOpen then
-			wait(50)
-			sampAddChatMessage(string.format("[%s]: Openning roulette", thisScript().name), 0xFFE4B5)
-			sampSendChat("/invent")
-			wait(2000) 
-			if sampTextdrawIsExists(2112) then
-				sampSendClickTextdraw(2112)
-				wait(1400)
-				if sampTextdrawIsExists(2201) and sampTextdrawIsExists(2203) then
-					sampSendClickTextdraw(2201)
+		if isPlayerPlaying(PLAYER_HANDLE) then
+			if enabled and fOpen then
+				wait(50)
+				sampAddChatMessage(string.format("[%s]: Openning roulette", thisScript().name), 0xFFE4B5)
+				sampSendChat("/invent")
+				wait(5000) 
+				if sampTextdrawIsExists(2112) then
+					sampSendClickTextdraw(2112)
+					wait(1400)
+					if sampTextdrawIsExists(2201) and sampTextdrawIsExists(2203) then
+						sampSendClickTextdraw(2201)
+					end
 				end
-			end
-			wait(1000)
-			if sampTextdrawIsExists(2113) then
-				local data_td = sampTextdrawGetString(2113)
-				if data_td ~= nil and data_td ~= "" then
-					wTime = string.match(data_td, "(%d+)%s+")
-					wTime = (tonumber(wTime)+1)*60000
-				else
-					wTime = 7200000
-				end				
-			end
-			wait(200)
-			if sampTextdrawIsExists(2186) then
-				sampSendClickTextdraw(2186)
-			end
-			fOpen = false
-			rltTimer()
-		end	
+				wait(1000)
+				if sampTextdrawIsExists(2113) then
+					local data_td = sampTextdrawGetString(2113)
+					if data_td ~= nil and (string.match(data_td, "(%d+) min") or string.match(data_td, "(%d+) sec")) then
+						wTime = string.match(data_td, "(%d+)%s+")
+						if string.match(data_td, "(%d+) min") then
+							wTime = tonumber(wTime)*60000
+						elseif string.match(data_td, "(%d+) sec") then
+							wTime = tonumber(wTime)*1000
+						end
+					else 
+						wTime = 7200000
+					end				
+				end
+				wait(200)
+				if sampTextdrawIsExists(2186) then
+					sampSendClickTextdraw(2186)
+				end
+				fOpen = false
+				rltTimer()
+			end	
+		end
 	end
 end
 
