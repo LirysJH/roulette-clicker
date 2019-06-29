@@ -48,8 +48,8 @@ function main()
 				if sampTextdrawIsExists(2112) then
 					sampSendClickTextdraw(2112)
 					wait(1400)
-					if sampTextdrawIsExists(2201) and sampTextdrawIsExists(2203) then
-						sampSendClickTextdraw(2201)
+					if sampTextdrawIsExists(2202) and sampTextdrawIsExists(2204) then
+						sampSendClickTextdraw(2202)
 					end
 				end
 				wait(1000)
@@ -67,8 +67,8 @@ function main()
 					end				
 				end
 				wait(200)
-				if sampTextdrawIsExists(2186) then
-					sampSendClickTextdraw(2186)
+				if sampTextdrawIsExists(2187) then
+					sampSendClickTextdraw(2187)
 				end
 				fOpen = false
 				rltTimer()
