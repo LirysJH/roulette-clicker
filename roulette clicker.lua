@@ -58,9 +58,11 @@ function main()
 					if data_td ~= nil and (string.match(data_td, "(%d+) min") or string.match(data_td, "(%d+) sec")) then
 						wTime = string.match(data_td, "(%d+)%s+")
 						if string.match(data_td, "(%d+) min") then
-							wTime = tonumber(wTime)*60000
+							-- wTime = tonumber(wTime)*60000
+							wTime = (tonumber(wTime)+2)*60000
 						elseif string.match(data_td, "(%d+) sec") then
-							wTime = tonumber(wTime)*1000
+							-- wTime = tonumber(wTime)*1000
+							wTime = tonumber(wTime)*1000+60000
 						end
 					else 
 						wTime = 7200000
