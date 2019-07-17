@@ -45,16 +45,16 @@ function main()
 				sampAddChatMessage(string.format("[%s]: Openning roulette", thisScript().name), 0xFFE4B5)
 				sampSendChat("/invent")
 				wait(5000) 
-				if sampTextdrawIsExists(2112) then
-					sampSendClickTextdraw(2112)
+				if sampTextdrawIsExists(2116) then
+					sampSendClickTextdraw(2116)
 					wait(1400)
-					if sampTextdrawIsExists(2202) and sampTextdrawIsExists(2204) then
-						sampSendClickTextdraw(2202)
+					if sampTextdrawIsExists(2206) and sampTextdrawIsExists(2208) then
+						sampSendClickTextdraw(2206)
 					end
 				end
 				wait(1000)
-				if sampTextdrawIsExists(2113) then
-					local data_td = sampTextdrawGetString(2113)
+				if sampTextdrawIsExists(2117) then
+					local data_td = sampTextdrawGetString(2117)
 					if data_td ~= nil and (string.match(data_td, "(%d+) min") or string.match(data_td, "(%d+) sec")) then
 						wTime = string.match(data_td, "(%d+)%s+")
 						if string.match(data_td, "(%d+) min") then
@@ -69,8 +69,8 @@ function main()
 					end				
 				end
 				wait(200)
-				if sampTextdrawIsExists(2187) then
-					sampSendClickTextdraw(2187)
+				if sampTextdrawIsExists(2191) then
+					sampSendClickTextdraw(2191)
 				end
 				fOpen = false
 				rltTimer()
